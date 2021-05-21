@@ -10,6 +10,7 @@ import base64
 from itertools import cycle
 
 
+
 def encrpytECC():
     secp_k = generate_key() #generate key pub priv
      #writing keys to secure file
@@ -54,17 +55,19 @@ def decryptECC():
             #get sk 
             sk=open("priv.key","rb+")
             skVal = sk.read()
-           
+            #sk.close()
 
             print(skVal)
             decryptdata = decrypt(skVal,dataValue)
             
-            #rewrite to file
             data.write(decryptdata)
             data.truncate()
             data.close()
 
 
-#main Part
-encrpytECC()
+print("we encrpyed")
+#encrpytECC()
+
+
+
 decryptECC()
